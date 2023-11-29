@@ -3,6 +3,6 @@ WORKDIR /go/src
 COPY main.go .
 RUN go build -o app main.go
 
-FROM alpine:3.6.5 
+FROM scratch
 COPY --from=builder /go/src/app .
 ENTRYPOINT [ "./app" ]
